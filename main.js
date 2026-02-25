@@ -103,14 +103,16 @@ async function sendBooking(method){
       headers:{'Content-Type':'application/json','Authorization':`Bearer ${localStorage.getItem('nt')||''}`},
       body:JSON.stringify({name,role,whatsapp:wa,email,service:svc,children:kids,startDate:start,endDate:end,startTime:st,endTime:et,notes,address:addr,total})
     });
-  }catch{}
+  }catch(err){
+    console.error('Failed to send booking:', err);
+  }
 
-  const wamsg=encodeURIComponent(`🍼 *BABYSITTING REQUEST*\n\n👤 *Name:* ${name} (${role})\n📋 *Service:* ${svc}\n👶 *Children:* ${kids}\n📅 *Date:* ${start}${end?' → '+end:''}\n⏰ *Time:* ${st||'TBD'} – ${et||'TBD'}\n📍 *Address:* ${addr||'TBC'}\n💰 *Est:* ${total}\n📝 *Notes:* ${notes||'None'}\n\nPlease confirm, thank you Nomsa! 😊`);
+  const wamsg=encodeURIComponent(`*BABYSITTING REQUEST*\n\n *Name:* ${name} (${role})\n *Service:* ${svc}\n *Children:* ${kids}\n *Date:* ${start}${end?' → '+end:''}\n *Time:* ${st||'TBD'} – ${et||'TBD'}\n *Address:* ${addr||'TBC'}\n *Est:* ${total}\n *Notes:* ${notes||'None'}\n\nPlease confirm, thank you Rachelle! `);
   const sub=encodeURIComponent('Babysitting Booking Request');
-  const body=encodeURIComponent(`Hi Nomsa,\n\nI'd like to book your babysitting services.\n\nName: ${name} (${role})\nService: ${svc}\nChildren: ${kids}\nDate: ${start}${end?' to '+end:''}\nTime: ${st||'TBD'} – ${et||'TBD'}\nAddress: ${addr||'TBC'}\nEst: ${total}\nNotes: ${notes||'None'}\n\nThank you!\n${name}\n${wa}`);
+  const body=encodeURIComponent(`Hi Rachelle,\n\nI'd like to book your babysitting services.\n\nName: ${name} (${role})\nService: ${svc}\nChildren: ${kids}\nDate: ${start}${end?' to '+end:''}\nTime: ${st||'TBD'} – ${et||'TBD'}\nAddress: ${addr||'TBC'}\nEst: ${total}\nNotes: ${notes||'None'}\n\nThank you!\n${name}\n${wa}`);
 
-  if(method==='wa'||method==='both') window.open(`https://wa.me/${NOMSA_WA}?text=${wamsg}`,'_blank');
-  if(method==='gmail'||method==='both') setTimeout(()=>window.open(`https://mail.google.com/mail/?view=cm&to=${NOMSA_EMAIL}&su=${sub}&body=${body}`,'_blank'),method==='both'?600:0);
+  if(method==='wa'||method==='both') window.open(`https://wa.me/${RACHELLE_WA}?text=${wamsg}`,'_blank');
+  if(method==='gmail'||method==='both') setTimeout(()=>window.open(`https://mail.google.com/mail/?view=cm&to=${RACHELLE_EMAIL}&su=${sub}&body=${body}`,'_blank'),method==='both'?600:0);
 
   const s=document.getElementById('bkSucc');
   s.style.display='flex';s.scrollIntoView({behavior:'smooth',block:'center'});
@@ -121,8 +123,8 @@ async function sendBooking(method){
 function sendQuick(){
   const name=document.getElementById('ctName').value||'Someone';
   const contact=document.getElementById('ctContact').value;
-  const msg=document.getElementById('ctMsg').value||'Hi Nomsa, I saw your website!';
-  window.open(`https://wa.me/${NOMSA_WA}?text=${encodeURIComponent(`Hi Nomsa! I'm ${name}${contact?' ('+contact+')':''}.\n\n${msg}`)}`,'_blank');
+  const msg=document.getElementById('ctMsg').value||'Hi Rachelle, I saw your website!';
+  window.open(`https://wa.me/${RACHELLE_WA}?text=${encodeURIComponent(`Hi Rachelle! I'm ${name}${contact?' ('+contact+')':''}.\n\n${msg}`)}`,'_blank');
 }
 
 /* ── AUTH ── */

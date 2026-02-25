@@ -6,7 +6,9 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   // In production (e.g. Railway / Render / Heroku) enable SSL:
   ssl: process.env.NODE_ENV === 'production'
-    ? { rejectUnauthorized: false }
+    ? { 
+      rejectUnauthorized: false 
+    }
     : false,
 });
 

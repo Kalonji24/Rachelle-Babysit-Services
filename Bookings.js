@@ -25,13 +25,13 @@ async function sendConfirmationEmail({ to, parentName, service, startDate, start
   if (!to) return;
   try {
     await transporter.sendMail({
-      from: `"Nomsa's Babysitting" <${process.env.GMAIL_USER}>`,
+      from: `"Rachelle's Babysitting" <${process.env.GMAIL_USER}>`,
       to,
-      subject: '🍼 Booking Request Received — Nomsa\'s Care',
+      subject: 'Booking Request Received — Rachelle\'s Care',
       html: `
         <div style="font-family:'Segoe UI',sans-serif;max-width:520px;margin:auto;color:#1A2420">
           <div style="background:#C8694A;padding:24px 32px;border-radius:16px 16px 0 0;text-align:center">
-            <h1 style="color:#fff;margin:0;font-size:1.5rem">🍼 Nomsa's Babysitting</h1>
+            <h1 style="color:#fff;margin:0;font-size:1.5rem">Rachelle's Babysitting</h1>
           </div>
           <div style="background:#fff;padding:32px;border:1px solid #EAE2D8;border-top:none;border-radius:0 0 16px 16px">
             <h2 style="color:#C8694A;margin-bottom:8px">Booking Request Received!</h2>
@@ -52,7 +52,7 @@ async function sendConfirmationEmail({ to, parentName, service, startDate, start
         </div>
       `,
     });
-    console.log(`📧 Confirmation email sent to ${to}`);
+    console.log(`Confirmation email sent to ${to}`);
   } catch (err) {
     // Email failing shouldn't break the booking
     console.error('[email send error]', err.message);
