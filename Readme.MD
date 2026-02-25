@@ -1,255 +1,140 @@
-# 🍼 Nomsa's Babysitting Website — Setup Guide
+
+# Rachelle's Babysitting Services
+
+A full-stack personal babysitting website built for someone with hands-on childcare 
+experience looking to connect with families in need of trusted, reliable care.
+
+## About This Project
+
+This website was built for Nomsa — an experienced babysitter based in Cape Town — 
+to help her reach families (mothers, fathers, aunties, uncles, grandparents and 
+guardians) who need someone they can trust with their children. It is not an agency 
+platform. It is a personal services site with a warm, approachable design that 
+reflects who Nomsa is.
+
+##  Features
+
+- **AI-style Chatbot** — answers questions about prices, availability and 
+  services, and connects visitors directly to WhatsApp when it can't help
+- **Interactive Availability Calendar** — shows booked vs open days, 
+  clicking a date auto-fills the booking form
+- **Booking Form** — collects all session details with an estimated cost 
+  calculator that works out the price based on hours and number of children
+- **WhatsApp Integration** — sends a pre-filled booking message directly 
+  to Nomsa's WhatsApp with one click
+- **Gmail Integration** — opens a pre-filled Gmail compose window with 
+  full booking details
+- **User Authentication** — register and sign in with email/password or 
+  social login (Google, Facebook), powered by JWT tokens
+- **Responsive Burger Menu** — fully mobile-friendly with a smooth 
+  slide-in navigation drawer
+- **Admin Analytics** — tracks total users, login counts, bookings by 
+  status, and user breakdown by role (stored in PostgreSQL)
+
+## Tech Stack
+
+**Frontend**
+- HTML5, CSS3, Vanilla JavaScript
+- Google Fonts (Fraunces + Plus Jakarta Sans)
+- No frameworks — pure hand-written code
+
+**Backend**
+- Node.js + Express.js
+- PostgreSQL (via `pg` library)
+- JWT Authentication (`jsonwebtoken` + `bcryptjs`)
+- Nodemailer (Gmail confirmation emails)
+- REST API
 
 ## Project Structure
-```
+
+\`\`\`
 babysitter/
 ├── frontend/
-│   └── index.html          ← The full website (open in browser or deploy)
-│
+│   └── index.html          # Full website — single file
 └── backend/
-    ├── server.js            ← Express entry point
+    ├── server.js            # Express entry point
     ├── package.json
-    ├── .env.example         ← Copy this to .env and fill in your values
+    ├── .env.example         # Environment variable template
     ├── db/
-    │   ├── connection.js    ← PostgreSQL pool
-    │   └── setup.js         ← Creates all tables (run once)
+    │   ├── connection.js    # PostgreSQL pool
+    │   └── setup.js         # Creates all database tables
     ├── middleware/
-    │   └── auth.js          ← JWT verification
+    │   └── auth.js          # JWT verification middleware
     └── routes/
-        ├── auth.js          ← Register, login, profile
-        ├── bookings.js      ← Create & manage bookings + email confirmation
-        ├── users.js         ← Profile, my bookings, admin stats
-        └── chat.js          ← Optional: save chatbot messages
-```
+        ├── auth.js          # Register, login, get profile
+        ├── bookings.js      # Create bookings + send confirmation email
+        ├── users.js         # Profile, my bookings, admin stats
+        └── chat.js          # Save chatbot conversations
+\`\`\`
 
----
+## Getting Started
 
-## ⚡ Quick Start (5 steps)
+### 1. Clone the repo
+\`\`\`bash
+git clone https://github.com/YOUR-USERNAME/nomsas-babysitting.git
+cd nomsas-babysitting
+\`\`\`
 
-### Step 1 — Install PostgreSQL
-Download and install from https://www.postgresql.org/download/
-
-Then create the database:
-```bash
-psql -U postgres
-CREATE DATABASE nomsas_care;
-\q
-```
-
-### Step 2 — Install Node dependencies
-```bash
+### 2. Set up the backend
+\`\`\`bash
 cd backend
 npm install
-```
-
-### Step 3 — Set up your .env file
-```bash
 cp .env.example .env
-```
-Then open `.env` and fill in:
-- `DATABASE_URL` — your PostgreSQL connection string
-- `JWT_SECRET` — any long random string (e.g. 40+ characters)
-- `GMAIL_USER` — Nomsa's Gmail address
-- `GMAIL_PASS` — Gmail App Password (NOT her real password!)
+# Fill in your PostgreSQL URL, JWT secret, and Gmail app password
+\`\`\`
 
-**How to get a Gmail App Password:**
-1. Go to Google Account → Security
-2. Enable 2-Step Verification (if not already on)
-3. Search for "App passwords"
-4. Create one for "Mail" — copy the 16-char code into `.env`
-
-### Step 4 — Create database tables
-```bash
+### 3. Create the database tables
+\`\`\`bash
 node db/setup.js
-```
-You should see: ✅ All tables created successfully!
+\`\`\`
 
-### Step 5 — Start the backend
-```bash
+### 4. Start the server
+\`\`\`bash
 npm run dev
-```
-You should see: 🍼 Nomsa's Care — Backend is running on http://localhost:5000
+# API runs on http://localhost:5000
+\`\`\`
+
+### 5. Open the frontend
+Open `frontend/index.html` in your browser using VS Code Live Server 
+or any static file server.
+
+> **Note:** The frontend works in demo mode even without the backend running. 
+> WhatsApp and Gmail links will still open correctly.
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Create a new user account |
+| POST | `/api/auth/login` | Sign in and receive a JWT token |
+| GET | `/api/auth/me` | Get current logged-in user |
+| POST | `/api/bookings` | Submit a booking request |
+| GET | `/api/bookings` | Get your own bookings |
+| GET | `/api/bookings/all` | Get all bookings (admin only) |
+| PATCH | `/api/bookings/:id` | Update booking status |
+| GET | `/api/users/profile` | View your profile |
+| PATCH | `/api/users/profile` | Update your profile |
+| GET | `/api/users/stats` | Admin dashboard analytics |
+| POST | `/api/chat/save` | Save a chatbot message |
+
+## Deployment
+
+- **Backend:** Deploy to [Railway](https://railway.app) or [Render](https://render.com)
+- **Frontend:** Deploy to [Netlify](https://netlify.com) — just drag and drop the `frontend` folder
+- **Database:** PostgreSQL on Railway (free tier available)
+
+##  License
+
+This project was built for personal use. Feel free to fork and adapt it 
+for your own services website.
 
 ---
 
-## 🌐 Running the Frontend
-Just open `frontend/index.html` in your browser. The easiest way:
-- Use VS Code's **Live Server** extension (right-click → Open with Live Server)
-- Or double-click the file to open it directly
-
-The frontend already calls `http://localhost:5000/api/...` — if the backend isn't running, it gracefully falls back to demo mode (WhatsApp/Gmail still work!).
-
----
-
-## 🔌 REST API Reference
-
-### Authentication
-| Method | Route | Body | Auth | Description |
-|--------|-------|------|------|-------------|
-| POST | `/api/auth/register` | `{firstName, lastName, email, password, role, phone}` | None | Create account |
-| POST | `/api/auth/login` | `{email, password}` | None | Sign in, get JWT |
-| GET | `/api/auth/me` | — | ✅ Token | Get current user |
-
-**Login response:**
-```json
-{
-  "token": "eyJhbGci...",
-  "user": { "id": 1, "firstName": "Thandi", "email": "...", "role": "mother", "loginCount": 3 }
-}
-```
-Store the token: `localStorage.setItem('nt', data.token)`
-Send it in future requests: `Authorization: Bearer <token>`
-
----
-
-### Bookings
-| Method | Route | Auth | Description |
-|--------|-------|------|-------------|
-| POST | `/api/bookings` | Optional | Create booking + send email |
-| GET | `/api/bookings` | ✅ Token | My bookings |
-| GET | `/api/bookings/all` | ✅ Admin | All bookings |
-| PATCH | `/api/bookings/:id` | ✅ Token | Update status |
-
-**Create booking body:**
-```json
-{
-  "name": "Thandi Nkosi",
-  "role": "Mother",
-  "whatsapp": "+27712345678",
-  "email": "thandi@gmail.com",
-  "service": "Baby Care (newborn–1yr) — R80/hr",
-  "children": "2 children (+R15/hr)",
-  "startDate": "2024-12-20",
-  "endDate": null,
-  "startTime": "08:00",
-  "endTime": "14:00",
-  "address": "123 Main Rd, Claremont",
-  "notes": "Baby is 6 months, allergic to dairy",
-  "total": "R285.00"
-}
+Built with ❤️ for families who need a helping hand.
 ```
 
 ---
 
-### Users
-| Method | Route | Auth | Description |
-|--------|-------|------|-------------|
-| GET | `/api/users/profile` | ✅ Token | Get my profile |
-| PATCH | `/api/users/profile` | ✅ Token | Update name/phone |
-| GET | `/api/users/my-bookings` | ✅ Token | All my bookings |
-| GET | `/api/users/stats` | ✅ Admin | Dashboard analytics |
-
-**Stats response (admin only):**
-```json
-{
-  "summary": {
-    "totalUsers": 47,
-    "totalLogins": 183,
-    "totalBookings": 62
-  },
-  "bookingsByStatus": [
-    { "status": "confirmed", "count": 28 },
-    { "status": "pending", "count": 15 }
-  ],
-  "topUsers": [...],
-  "recentBookings": [...],
-  "bookingsByDay": [...],
-  "usersByRole": [
-    { "role": "mother", "count": 20 },
-    { "role": "father", "count": 12 }
-  ]
-}
+**GitHub repository topics/tags to add** (under the repo name, click the ⚙️ gear next to "About"):
 ```
-
----
-
-### Chat (optional)
-| Method | Route | Auth | Description |
-|--------|-------|------|-------------|
-| POST | `/api/chat/save` | None | Save a chatbot message |
-| GET | `/api/chat/all` | ✅ Admin | View all conversations |
-
----
-
-## 🗄️ Database Tables
-
-### `users`
-| Column | Type | Notes |
-|--------|------|-------|
-| id | SERIAL PK | |
-| first_name | VARCHAR | |
-| last_name | VARCHAR | |
-| email | VARCHAR UNIQUE | |
-| password_hash | VARCHAR | NULL for social login |
-| role | VARCHAR | mother/father/aunt/uncle/guardian |
-| phone | VARCHAR | WhatsApp number |
-| login_count | INT | increments on every login |
-| last_login_at | TIMESTAMPTZ | |
-
-### `login_logs`
-| Column | Type | Notes |
-|--------|------|-------|
-| id | SERIAL PK | |
-| user_id | FK → users | |
-| ip_address | VARCHAR | |
-| logged_in_at | TIMESTAMPTZ | |
-
-### `bookings`
-| Column | Type | Notes |
-|--------|------|-------|
-| id | SERIAL PK | |
-| user_id | FK → users | NULL for guest bookings |
-| parent_name | VARCHAR | |
-| parent_role | VARCHAR | mother/father/etc |
-| whatsapp | VARCHAR | |
-| email | VARCHAR | gets confirmation email |
-| service | VARCHAR | |
-| num_children | VARCHAR | |
-| start_date | DATE | |
-| start_time / end_time | TIME | |
-| address | TEXT | |
-| notes | TEXT | |
-| estimated_cost | VARCHAR | |
-| status | VARCHAR | pending/confirmed/cancelled/completed |
-
-### `chat_messages`
-| Column | Type | Notes |
-|--------|------|-------|
-| session_id | VARCHAR | random ID from browser |
-| sender | VARCHAR | 'user' or 'bot' |
-| message | TEXT | |
-
----
-
-## 🚀 Deploying to Production
-
-**Backend:** Deploy to [Railway](https://railway.app) (free tier available)
-1. Push backend folder to GitHub
-2. Connect to Railway → New Project → Deploy from GitHub
-3. Add PostgreSQL plugin
-4. Set environment variables in Railway dashboard
-5. Your API will be live at `https://your-app.up.railway.app`
-
-**Frontend:** Update the API URL in `index.html`:
-```js
-// Change this line in every fetch() call:
-'http://localhost:5000/api/...'
-// To your live backend URL:
-'https://your-app.up.railway.app/api/...'
-```
-Then deploy frontend to [Netlify](https://netlify.com) — just drag and drop the `frontend` folder!
-
----
-
-## 💬 WhatsApp Integration
-The website uses **WhatsApp deep links** (free, no API needed):
-```
-https://wa.me/27712345678?text=Pre-filled+message+here
-```
-This opens WhatsApp with Nomsa's number pre-loaded and the booking details already typed.
-
-To send WhatsApp programmatically (e.g. from the backend), you'd need [Twilio's WhatsApp API](https://www.twilio.com/whatsapp) — but the deep link approach works great for a personal babysitting site!
-
----
-
-Made with ❤️ for Nomsa and the families who trust her.
+babysitting  nodejs  expressjs  postgresql  javascript  whatsapp  rest-api  fullstack  html-css  responsive
