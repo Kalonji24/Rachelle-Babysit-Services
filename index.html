@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rachelle's Babysitting — Caring for Your Little Ones</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-emoji">🍼</div>
+    <div class="loader-name">Rachelle's Babysitting</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <div class="logo-dot">🍼</div>
+    <div>Rachelle's Care <span class="logo-sub">Babysitting Services</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#availability">Availability</a></li>
+    <li><a href="#booking">Book Me</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="btn btn-outline" onclick="openAuth('login')">Sign In</button>
+    <button class="btn btn-fill" onclick="openAuth('signup')">Register</button>
+  </div>
+  <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#availability" onclick="closeMenu()">Availability</a>
+  <a href="#booking" onclick="closeMenu()">Book Me</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <div class="mob-btns">
+    <button class="btn btn-outline" onclick="closeMenu();openAuth('login')">Sign In</button>
+    <button class="btn btn-fill" onclick="closeMenu();openAuth('signup')">Register</button>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-bg-blob hb1"></div>
+  <div class="hero-bg-blob hb2"></div>
+
+  <div class="hero-left">
+    <div class="pill">💛 Available in Cape Town &amp; Surrounds</div>
+    <h1>Your Kids Are in <i>Safe,</i> <span class="grn">Caring</span> Hands</h1>
+    <p>Hi, I'm Rachelle! I've been looking after babies and children for years and I absolutely love what I do. Whether you need a few hours or a full month of care — I'm here for your family.</p>
+    <div class="hero-btns">
+      <button class="btn btn-fill btn-xl" onclick="goTo('booking')">📅 Book Me Now</button>
+      <button class="btn btn-outline btn-xl" onclick="goTo('about')">👋 Meet Me</button>
+    </div>
+    <div class="trust-strip">
+      <div class="t-faces">
+        <div class="t-face">👩🏽</div><div class="t-face">👨🏾</div>
+        <div class="t-face">👩🏿</div><div class="t-face">👴🏽</div>
+      </div>
+      <div class="t-label"><strong>150+ families</strong> have trusted me with their little ones</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="float-card fl">
+      <div class="fc-icon">🔒</div>
+      <div>Background Checked<span class="fc-sub">Police clearance held</span></div>
+    </div>
+
+    <div class="h-card">
+      <div class="avail-dot">Available Now</div>
+      <div class="hc-photo">👩🏾</div>
+      <div class="hc-name">Rachelle </div>
+      <div class="hc-role">Experienced Babysitter</div>
+      <div class="hc-chips">
+        <span class="chip t">Infants</span>
+        <span class="chip f">Toddlers</span>
+        <span class="chip t">School Age</span>
+        <span class="chip f">Overnight</span>
+      </div>
+      <div class="hc-stats">
+        <div class="hc-stat"><strong>6+</strong><span>Yrs Exp.</span></div>
+        <div class="hc-stat"><strong>150+</strong><span>Families</span></div>
+        <div class="hc-stat"><strong>R80</strong><span>Per Hour</span></div>
+      </div>
+      <button class="btn btn-fill" style="width:100%;padding:11px;font-size:.88rem" onclick="goTo('booking')">Book a Session →</button>
+    </div>
+
+    <div class="float-card fr">
+      <div class="fc-icon">💬</div>
+      <div>WhatsApp me anytime<span class="fc-sub">Usually replies in minutes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-img-box">👩🏾‍🍼</div>
+      <div class="exp-badge">
+        <div class="bnum">6+</div>
+        <div class="blbl">Years<br>Looking<br>After Kids</div>
+      </div>
+    </div>
+    <div class="about-body">
+      <span class="section-kicker">About Me</span>
+      <h2 class="section-h">I'm Not an Agency — I'm Just Someone Who <i style="color:var(--terracotta)">Loves</i> Kids</h2>
+      <p>My name is Kalonji and I've been babysitting for over 6 years. It started with looking after my siblings and cousins, then neighbours started asking, and word just spread from there. I've never worked for a company — everything I know comes from real hands-on experience.</p>
+      <p>I'm reliable, patient, and I really care about the children I look after. I treat every child like they're my own. Parents — moms, dads, aunties, uncles, grandparents — all come to me when they need someone they can actually trust.</p>
+      <p>I'm not fancy, but I show up on time, I communicate clearly, and your kids will be happy, fed, and safe while you're away. That's my promise.</p>
+      <div class="xp-list">
+        <div class="xp-item"><span class="xp-ic">👶</span> Experienced with newborns, toddlers &amp; school-age kids</div>
+        <div class="xp-item"><span class="xp-ic">🩹</span> Basic First Aid knowledge</div>
+        <div class="xp-item"><span class="xp-ic">🛡️</span> Police clearance available on request</div>
+        <div class="xp-item"><span class="xp-ic">📲</span> Regular photo &amp; update messages to parents</div>
+        <div class="xp-item"><span class="xp-ic">🏠</span> In-home care at your place</div>
+      </div>
+      <button class="btn btn-fill btn-lg" onclick="goTo('booking')">📅 Book a Session</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div style="text-align:center">
+    <span class="section-kicker">What I Offer</span>
+    <h2 class="section-h">My Babysitting Services</h2>
+    <p style="color:var(--mid);max-width:500px;margin:0 auto 0;line-height:1.8">Flexible care based on what you and your family actually need. No packages, no contracts — just honest, reliable help.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc">
+      <span class="svc-em">👶</span>
+      <h3>Newborn &amp; Baby Care</h3>
+      <p>Feeding, burping, nappy changes, nap time — I'm comfortable with babies from birth. I'll follow your routine exactly.</p>
+      <div class="svc-rate"><b>R80</b><s>/hour</s></div>
+    </div>
+    <div class="svc">
+      <span class="svc-em">🧸</span>
+      <h3>Toddler Care (1–3 yrs)</h3>
+      <p>Play, meals, naps and potty training support. I keep toddlers busy and happy with simple, fun activities.</p>
+      <div class="svc-rate"><b>R75</b><s>/hour</s></div>
+    </div>
+    <div class="svc">
+      <span class="svc-em">🎒</span>
+      <h3>After-School Care (4–12 yrs)</h3>
+      <p>I'll collect your child, make a snack, help with homework, and keep them entertained until you get home.</p>
+      <div class="svc-rate"><b>R70</b><s>/hour</s></div>
+    </div>
+    <div class="svc">
+      <span class="svc-em">🌙</span>
+      <h3>Overnight Babysitting</h3>
+      <p>I stay the night — dinner, bath, bedtime story, breakfast in the morning. Perfect for when you need a night away.</p>
+      <div class="svc-rate"><b>R400</b><s>/night</s></div>
+    </div>
+    <div class="svc">
+      <span class="svc-em">☀️</span>
+      <h3>Full Day Care</h3>
+      <p>A full day at your home — structured but relaxed. Meals, outdoor time, naps and activities all included.</p>
+      <div class="svc-rate"><b>R500</b><s>/day</s></div>
+    </div>
+    <div class="svc">
+      <span class="svc-em">🗓️</span>
+      <h3>Regular Weekly Bookings</h3>
+      <p>Need me on specific days each week? Let's set up a recurring arrangement that works for your family's routine.</p>
+      <div class="svc-rate"><b>Let's chat</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AVAILABILITY ── -->
+<section class="avail-sec" id="availability">
+  <div style="text-align:center">
+    <span class="section-kicker">My Schedule</span>
+    <h2 class="section-h">Check When I'm Available</h2>
+    <p style="color:var(--mid);max-width:480px;margin:0 auto;line-height:1.8">Green days on the calendar are open. Click one to jump straight to the booking form!</p>
+  </div>
+  <div class="avail-wrap">
+    <div class="cal-box">
+      <div class="cal-hd">
+        <span class="cal-month" id="calLabel"></span>
+        <div class="cal-nav-btns">
+          <button class="cnb" onclick="shiftMonth(-1)">‹</button>
+          <button class="cnb" onclick="shiftMonth(1)">›</button>
+        </div>
+      </div>
+      <div class="cal-dh"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+      <div class="cal-g" id="calGrid"></div>
+      <div class="cal-leg">
+        <div class="leg"><div class="ld ld-a"></div>Available</div>
+        <div class="leg"><div class="ld ld-b"></div>Booked</div>
+      </div>
+    </div>
+    <div class="avail-cards">
+      <div class="av-row">
+        <div class="avr-l"><div class="avr-ic">☀️</div><div><div class="avr-t">Weekday Daytime</div><div class="avr-s">Mon–Fri · 7am–6pm</div></div></div>
+        <span class="badge badge-g">Open</span>
+      </div>
+      <div class="av-row">
+        <div class="avr-l"><div class="avr-ic">🌆</div><div><div class="avr-t">Weekday Evenings</div><div class="avr-s">Mon–Thu · 6pm–10pm</div></div></div>
+        <span class="badge badge-g">Open</span>
+      </div>
+      <div class="av-row">
+        <div class="avr-l"><div class="avr-ic">🎉</div><div><div class="avr-t">Weekends</div><div class="avr-s">Sat &amp; Sun · All day</div></div></div>
+        <span class="badge badge-g">Open</span>
+      </div>
+      <div class="av-row">
+        <div class="avr-l"><div class="avr-ic">🌙</div><div><div class="avr-t">Overnight</div><div class="avr-s">Any day · By arrangement</div></div></div>
+        <span class="badge badge-o">Ask me first</span>
+      </div>
+      <div class="av-row">
+        <div class="avr-l"><div class="avr-ic">📅</div><div><div class="avr-t">Public Holidays</div><div class="avr-s">Available · Small extra charge</div></div></div>
+        <span class="badge badge-o">Ask me first</span>
+      </div>
+      <button class="btn btn-fill" style="width:100%;padding:13px;margin-top:4px" onclick="goTo('booking')">📅 Book a Date Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKING ── -->
+<section class="booking-sec" id="booking">
+  <div style="text-align:center">
+    <span class="section-kicker">Book Me</span>
+    <h2 class="section-h">Request a Booking</h2>
+    <p style="color:var(--mid);max-width:500px;margin:0 auto;line-height:1.8">Fill in the form and I'll get back to you on WhatsApp or email within the hour to confirm everything.</p>
+  </div>
+  <div class="bk-wrap">
+    <div class="bk-success" id="bkSucc">🎉 Booking request sent! I'll reply on WhatsApp or Gmail shortly.</div>
+    <div class="bk-grid">
+      <div class="fg"><label>Your Full Name</label><input type="text" id="bkName" placeholder="e.g. Thandi Nkosi"></div>
+      <div class="fg">
+        <label>You are a...</label>
+        <select id="bkRole">
+          <option>Mother</option><option>Father</option><option>Aunt / Aunty</option>
+          <option>Uncle</option><option>Grandmother</option><option>Grandfather</option><option>Guardian / Caregiver</option>
+        </select>
+      </div>
+      <div class="fg"><label>WhatsApp Number</label><input type="tel" id="bkWa" placeholder="+27 71 234 5678"></div>
+      <div class="fg"><label>Email (Gmail)</label><input type="email" id="bkEmail" placeholder="you@gmail.com"></div>
+      <div class="fg">
+        <label>Service Needed</label>
+        <select id="bkSvc" onchange="calcEst()">
+          <option value="80">Baby Care (newborn–1yr) — R80/hr</option>
+          <option value="75">Toddler Care (1–3yrs) — R75/hr</option>
+          <option value="70">After-School Care — R70/hr</option>
+          <option value="400">Overnight — R400/night</option>
+          <option value="500">Full Day — R500/day</option>
+          <option value="0">Regular Bookings — Let's chat</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Number of Children</label>
+        <select id="bkKids" onchange="calcEst()">
+          <option value="0">1 child</option>
+          <option value="15">2 children (+R15/hr)</option>
+          <option value="30">3 children (+R30/hr)</option>
+        </select>
+      </div>
+      <div class="fg"><label>Start Date</label><input type="date" id="bkStart"></div>
+      <div class="fg"><label>End Date (if multi-day)</label><input type="date" id="bkEnd"></div>
+      <div class="fg"><label>Start Time</label><input type="time" id="bkST"></div>
+      <div class="fg"><label>End Time</label><input type="time" id="bkET" onchange="calcEst()"></div>
+      <div class="fg full"><label>Child's Age &amp; Any Notes</label><textarea id="bkNotes" placeholder="Child is 8 months old, allergic to dairy. Naps at 1pm. Please bring a light jacket..."></textarea></div>
+      <div class="fg full"><label>Your Home Address</label><input type="text" id="bkAddr" placeholder="123 Main Road, Claremont, Cape Town"></div>
+    </div>
+    <div class="total-bar">
+      <span>Estimated Cost</span>
+      <strong id="bkTotal">R—</strong>
+    </div>
+    <div class="bk-actions">
+      <button class="btn btn-forest" onclick="sendBooking('wa')">💬 WhatsApp Rachelle</button>
+      <button class="btn btn-fill" onclick="sendBooking('gmail')">📧 Send via Gmail</button>
+      <button class="btn btn-outline" onclick="sendBooking('both')">✅ Both</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-sec" id="contact">
+  <div style="text-align:center">
+    <span class="section-kicker">Contact</span>
+    <h2 class="section-h">Get in Touch</h2>
+    <p style="max-width:460px;margin:0 auto;line-height:1.8">Have a question? Want to know if I'm free on a certain date? Just reach out — I don't bite 😊</p>
+  </div>
+  <div class="ct-grid">
+    <div class="ct-items">
+      <a class="ct-item" href="https://wa.me/27603634053?text=Hi%20Rachelle!%20I%20saw%20your%20website%20and%20I'd%20like%20to%20ask%20about%20babysitting." target="_blank">
+        <div class="ct-ico">💬</div>
+        <div><div class="ct-lbl">WhatsApp</div><div class="ct-val">+27 60 363 4053</div></div>
+      </a>
+      <a class="ct-item" href="mailto:kalonjilubo12@gmail.com" target="_blank">
+        <div class="ct-ico">📧</div>
+        <div><div class="ct-lbl">Email</div><div class="ct-val">kalonjilubo12@gmail.com</div></div>
+      </a>
+      <div class="ct-item">
+        <div class="ct-ico">📍</div>
+        <div><div class="ct-lbl">Where I Work</div><div class="ct-val">Cape Town area (up to ~25km)</div></div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-ico">⏰</div>
+        <div><div class="ct-lbl">Response Time</div><div class="ct-val">WhatsApp: a few minutes · Email: ~1hr</div></div>
+      </div>
+    </div>
+    <div class="ct-form">
+      <h3>Quick Message</h3>
+      <div class="fg" style="margin-bottom:14px"><label>Your Name</label><input type="text" id="ctName" placeholder="Your name"></div>
+      <div class="fg" style="margin-bottom:14px"><label>Your WhatsApp or Email</label><input type="text" id="ctContact" placeholder="+27 or @gmail.com"></div>
+      <div class="fg" style="margin-bottom:20px"><label>Message</label><textarea id="ctMsg" placeholder="Hi Nomsa, I was wondering if you're available on..."></textarea></div>
+      <button class="btn btn-fill" style="width:100%;padding:13px" onclick="sendQuick()">💬 Send on WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo" style="color:var(--cream)">
+    <div class="logo-dot">🍼</div>
+    <div>Nomsa's Care <span class="logo-sub" style="color:var(--muted)">Babysitting Services</span></div>
+  </a>
+  <p>© 2024 Nomsa Dlamini · Cape Town</p>
+  <p>Made with ❤️ for families who need a helping hand</p>
+</footer>
+
+<!-- SCROLL TOP -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ================================================
+     CHATBOT
+     ================================================ -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" title="Chat with Nomsa's assistant">
+  💬
+  <div class="chat-badge" id="chatBadge">1</div>
+</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-head">
+    <div class="chat-avatar">👩🏾</div>
+    <div class="chat-head-info">
+      <h4>Rachelle's Assistant</h4>
+      <p><span class="online-dot"></span> Usually replies in minutes</p>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+
+  <div class="chat-body" id="chatBody"></div>
+
+  <div class="quick-replies" id="quickReplies"></div>
+
+  <div class="wa-redirect" id="waRedirect" style="display:none">
+    <button class="wa-btn" onclick="openWhatsApp()">
+      <span>📱</span> Continue on WhatsApp
+    </button>
+  </div>
+
+  <div class="chat-foot">
+    <input class="chat-input" id="chatInput" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendUserMsg()">
+    <button class="chat-send" onclick="sendUserMsg()">➤</button>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-ov" id="authModal">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <div class="modal-logo">🍼 's Care</div>
+    <h2 id="authH">Welcome Back</h2>
+    <p class="modal-desc" id="authD">Sign in to manage your bookings</p>
+    <div class="auth-tabs">
+      <button class="atab on" id="t1" onclick="authTab('login')">Sign In</button>
+      <button class="atab" id="t2" onclick="authTab('signup')">Register</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="af on mf" id="afLogin">
+      <div class="msuccess" id="loginOk">✅ Signed in! Welcome back.</div>
+      <div class="soc-row">
+        <button class="soc-btn" onclick="socialAuth('google')">🔷 Google</button>
+        <button class="soc-btn" onclick="socialAuth('facebook')">🔵 Facebook</button>
+      </div>
+      <div class="divider">or with email</div>
+      <div class="fg"><label>Email</label><input type="email" id="lMail" placeholder="you@email.com"></div>
+      <div class="fg"><label>Password</label><input type="password" id="lPw" placeholder="••••••••"></div>
+      <p style="text-align:right;font-size:.78rem;margin-bottom:12px"><a href="#" style="color:var(--terracotta);text-decoration:none;font-weight:700">Forgot password?</a></p>
+      <button class="btn btn-fill" onclick="doLogin()">Sign In</button>
+      <p style="text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted)">No account? <a href="#" style="color:var(--terracotta);font-weight:700" onclick="authTab('signup')">Register →</a></p>
+    </div>
+
+    <!-- SIGNUP -->
+    <div class="af mf" id="afSignup">
+      <div class="msuccess" id="signupOk">🎉 Account created! You're all set.</div>
+      <div class="soc-row">
+        <button class="soc-btn" onclick="socialAuth('google')">🔷 Google</button>
+        <button class="soc-btn" onclick="socialAuth('facebook')">🔵 Facebook</button>
+      </div>
+      <div class="divider">or register with email</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="fg"><label>First Name</label><input type="text" id="sF" placeholder="Thandi"></div>
+        <div class="fg"><label>Last Name</label><input type="text" id="sL" placeholder="Nkosi"></div>
+      </div>
+      <div class="fg"><label>I am a...</label>
+        <select id="sRole"><option>Mother</option><option>Father</option><option>Aunt/Aunty</option><option>Uncle</option><option>Grandmother</option><option>Grandfather</option><option>Guardian</option></select>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" id="sMail" placeholder="you@email.com"></div>
+      <div class="fg"><label>WhatsApp</label><input type="tel" id="sWa" placeholder="+27 60 363 4053"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="fg"><label>Password</label><input type="password" id="sPw" placeholder="••••••••"></div>
+        <div class="fg"><label>Confirm</label><input type="password" id="sPwC" placeholder="••••••••"></div>
+      </div>
+      <button class="btn btn-fill" onclick="doSignup()">Create Account</button>
+      <p style="text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted)">Have an account? <a href="#" style="color:var(--terracotta);font-weight:700" onclick="authTab('login')">Sign in →</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
