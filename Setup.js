@@ -8,7 +8,7 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 const SCHEMA = `
 -- ─────────────────────────────────────
---  Nomsa's Care — Database Schema
+--  Rachelle's Care — Database Schema
 -- ─────────────────────────────────────
 
 -- Users: parents, guardians, aunties, uncles etc who register on the site
